@@ -1,0 +1,23 @@
+{
+  "name": "piecemeta-apiclient",
+  "version": "1.0.0",
+  "authors": [
+    "Anton Koch <anton.koch@gmail.com>"
+  ],
+  "description": "JavaScript API client for PieceMeta.com",
+  "main": "dist/web-apiclient.min.js",
+  "keywords": [
+    "api",
+    "client",
+    "piecemeta"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/piecemeta/node-piecemeta-apiclient",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
