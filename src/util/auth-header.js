@@ -3,7 +3,7 @@
     'use strict';
 
     module.exports.getTokenHeader = function (access_token) {
-        if (typeof access_token === 'object') {
+        if (access_token && typeof access_token === 'object' && typeof access_token.token === 'string') {
             return 'bearer ' + access_token.token;
         } else {
             return null;
