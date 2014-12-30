@@ -26,10 +26,10 @@ require.m[0] = { "src/apiclient.js": function(module, exports, require){(functio
                             // supplied data is a resource id
                             path += '/' + data;
                             data = null;
-                        } else if (typeof data === 'object' && typeof data.id === 'string') {
+                        } else if (typeof data === 'object' && typeof data.uuid === 'string') {
                             // check if resource object contains id
-                            path += '/' + data.id;
-                            delete data.id;
+                            path += '/' + data.uuid;
+                            delete data.uuid;
                         }
 
                         http.request(
