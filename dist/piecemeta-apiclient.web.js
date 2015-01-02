@@ -164,7 +164,10 @@ require.m[0] = { "src/apiclient.js": function(module, exports, require){(functio
                 if (req.status === 200 || req.status === 201) {
                     callback(null, req.responseText);
                 } else {
-                    callback(new Error('Server responded with status: ' + req.status), req.responseText);
+                    callback({
+                        code: req.status,
+                        message: null
+                    }, req.responseText);
                 }
             }
         };

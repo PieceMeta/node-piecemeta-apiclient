@@ -23,13 +23,12 @@
         }
 
         var req = http.request(requestSetup, function (res) {
-            console.log('STATUS: ' + res.statusCode);
-            console.log('HEADERS: ' + JSON.stringify(res.headers));
-
             var error = null;
-
             if (res.statusCode !== 200 && res.statusCode !== 201) {
-                error = new Error('Server responded with status: ' + req.status);
+                error = {
+                    code: statusCode,
+                    message: null
+                };
             }
 
             res.setEncoding('utf8');
