@@ -24,7 +24,7 @@
                             // supplied data is a resource id
                             path += '/' + data;
                             data = null;
-                        } else if (typeof data === 'object' && typeof data.uuid === 'string') {
+                        } else if (typeof data === 'object' && typeof data.uuid === 'string' && method.toLowerCase() === 'post') {
                             // check if resource object contains id
                             path += '/' + data.uuid;
                             delete data.uuid;
