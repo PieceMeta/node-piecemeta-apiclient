@@ -27,7 +27,6 @@ require.m[0] = { "src/apiclient.js": function(module, exports, require){(functio
                             path += '/' + data;
                             data = null;
                         } else if (typeof data === 'object' && typeof data.uuid === 'string') {
-                            console.log(method);
                             if (method.toLowerCase() !== 'post') {
                                 // check if resource object contains id
                                 path += '/' + data.uuid;
