@@ -5,6 +5,10 @@
 A javascript client for the [PieceMeta API](http://github.com/PieceMeta/piecemeta-api) (Node & Browser)
 
 
+## Stability
+
+Unstable: Expect patches and features, possible api changes.
+
 ## Using the client
 
 Both implementations only differ in the setup procedure. Other than that they work identically. (Side note: progress is not yet implemented in the node version.)
