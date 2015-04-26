@@ -4,7 +4,6 @@
 
 A javascript client for the [PieceMeta API](http://github.com/PieceMeta/piecemeta-api) (Node & Browser)
 
-
 ## Stability
 
 Unstable: Expect patches and features, possible api changes.

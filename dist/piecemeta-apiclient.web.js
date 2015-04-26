@@ -14,7 +14,7 @@ require.m[0] = { "src/apiclient.js": function(module, exports, require){(functio
         parser = dataParser;
         config = apiConfig;
         return {
-            resource: function (resourceName) {
+            resource: function (resourceName, query) {
                 return {
                     action: function (method, data, callback, progress) {
                         var path = '/' + resourceName;
@@ -27,20 +27,28 @@ require.m[0] = { "src/apiclient.js": function(module, exports, require){(functio
                             path += '/' + data;
                             data = null;
                         } else if (typeof data === 'object' && typeof data.uuid === 'string') {
-                            console.log(method);
                             if (method.toLowerCase() !== 'post') {
                                 // check if resource object contains id
                                 path += '/' + data.uuid;
                                 delete data.uuid;
                             }
                         }
+                        var queryString = '';
+                        if (typeof query === 'object') {
+                            var queryParts = [];
+                            for (var key in query) {
+                                queryParts.push(key + '=' + encodeURIComponent(query[key]));
+                            }
+                            queryString = '?' + queryParts.join('&');
+                        }
 
                         http.request(
                             {
-                                url: config.host + path,
+                                url: config.host + path + queryString,
                                 auth: auth.getTokenHeader(config.access_token),
                                 method: method,
                                 contentType: config.contentType,
+                                query: query,
                                 data: data ? parser.unparse(data, config.contentType) : undefined
                             },
                             function (err, result) {
